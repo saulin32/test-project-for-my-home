@@ -1,33 +1,58 @@
 <template>
   <div class="img flex justify-center items-center">
     <div class="w-[340px] h-[309px] flex flex-col items-center">
-      <div class="w-[308px] h-14 bg-[#44A248] flex items-center justify-center text-white rounded-[5px] z-10 font-bold">
+      <div
+        class="w-[308px] h-[56px] bg-[#44A248] flex items-center justify-center text-white rounded-[5px] z-10 font-bold">
         <p>Авторизация</p>
       </div>
-      <form class="bg-white w-[340px] h-[290px] rounded-[5px] flex flex-col justify-end -translate-y-[37px]">
-        <Input label="Логин или телефон" v-model="login" />
-        <Input label="Пароль" v-model="password" />
-      </form>
+      <div class="bg-white w-full h-[290px] rounded-[5px] flex flex-col justify-center -translate-y-[37px] px-5">
+        <v-form class="flex flex-col gap-2">
+          <v-text-field label="Логин или телефон" v-model="login" prepend-inner-icon="mdi-phone">
+          </v-text-field>
+          <v-text-field label="Пароль" hide-details="auto" prepend-inner-icon="mdi-lock" append-icon="mdi-eye-off"
+            v-model="password">
+          </v-text-field>
+          <div class="flex justify-center">
+            <v-btn color="#50B053" class="!text-white hover:!bg-[#319c4b]" @click="loginToAccount"
+              :disabled="buttonDisabled">
+              Войти
+            </v-btn>
+          </div>
+        </v-form>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import Input from '../UI/Input.vue'
 export default {
   name: 'LoginPage',
   props: {
-    msg: String
+    msg: String,
   },
   components: {
-    Input
   },
   data() {
     return {
-      login: '',
-      password:'',
+      login: '79122333444',
+      password: "123456",
+      buttonDisabled: false,
     }
-  }
+  },
+  methods: {
+    async loginToAccount() {
+      this.buttonDisabled = true
+      await window.axios.post('api/auth/login/', {
+        username: this.login,
+        password: this.password,
+      }).then(response => {
+        console.log(response)
+      }).catch(error => {
+        console.error(error)
+      })
+      this.buttonDisabled = false
+    },
+  },
 }
 </script>
 

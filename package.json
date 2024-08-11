@@ -3,16 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "dev": "vue-cli-service serve"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.6.0",
+    "@fortawesome/free-regular-svg-icons": "^6.6.0",
+    "@fortawesome/free-solid-svg-icons": "^6.6.0",
+    "@fortawesome/vue-fontawesome": "^2.0.10",
     "axios": "^1.7.3",
     "core-js": "^3.8.3",
     "maska": "^3.0.0",
+    "v-mask": "^2.3.0",
     "vue": "^2.6.14",
     "vue-router": "^3.6.5",
+    "vuetify": "^2.7.2",
     "vuex": "^3.6.2"
   },
   "devDependencies": {
@@ -22,14 +28,17 @@
     "@vue/cli-plugin-eslint": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
     "autoprefixer": "^10.4.20",
+    "deepmerge": "^4.3.1",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3",
     "node-sass": "^9.0.0",
     "postcss": "^8.4.41",
-    "sass": "^1.77.8",
+    "sass": "~1.32",
     "sass-loader": "^16.0.0",
     "tailwindcss": "^3.4.9",
-    "vue-template-compiler": "^2.6.14"
+    "vue-cli-plugin-vuetify": "~2.5.8",
+    "vue-template-compiler": "^2.6.14",
+    "vuetify-loader": "^1.7.0"
   },
   "eslintConfig": {
     "root": true,
