@@ -25,6 +25,10 @@
 </template>
 
 <script>
+import axios from 'axios';
+
+// import { mapGetters } from 'vuex'
+
 export default {
   name: 'LoginPage',
   props: {
@@ -42,17 +46,24 @@ export default {
   methods: {
     async loginToAccount() {
       this.buttonDisabled = true
-      await window.axios.post('api/auth/login/', {
+      await axios.post('https://dev.moydomonline.ru/api/auth/login/', {
         username: this.login,
         password: this.password,
       }).then(response => {
-        console.log(response)
+        this.$store.commit('setUser', response.data)
+        this.$router.push('/')
       }).catch(error => {
+        this.buttonDisabled = false
         console.error(error)
       })
-      this.buttonDisabled = false
     },
   },
+  // computed: {
+  //   ...mapGetters(['store',])
+  // },
+  created() {
+    if (this.$store.getters.getUser.employee_id) console.log(this.$router.push('/'))
+  }
 }
 </script>
 
