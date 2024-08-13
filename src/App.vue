@@ -1,6 +1,7 @@
 <template>
-  <router-view></router-view>
-  <!-- <Login /> -->
+  <div data-app>
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>

@@ -10,7 +10,7 @@
           <v-text-field label="Логин или телефон" v-model="login" prepend-inner-icon="mdi-phone">
           </v-text-field>
           <v-text-field label="Пароль" hide-details="auto" prepend-inner-icon="mdi-lock" append-icon="mdi-eye-off"
-            v-model="password">
+            v-model="password" type="password">
           </v-text-field>
           <div class="flex justify-center">
             <v-btn color="#50B053" class="!text-white hover:!bg-[#319c4b]" @click="loginToAccount"

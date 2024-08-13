@@ -27,13 +27,8 @@ Vue.config.productionTip = false
 library.add(fas)
 
 Vue.use(VMask).component('fontawesome-icon');
-// const router = new VueRouter({
-//   routes: Routes,
-//   mode: 'history'
-// });
 
 new Vue({
-  // component: 'fontawesome-icon',
   FontAwesomeIcon,
   vuetify,
   router,
